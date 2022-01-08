@@ -8,7 +8,7 @@ export default {
   // use 10.0.2.2 for Android to connect to host machine
   apiUrl: 'http://localhost:8080/',
   // leave blank if using Keycloak
-  nativeClientId: '',
+  nativeClientId: 'bfgkebHPBKvNrHZWaocQrNYZO754kfud',
   // use expo auth proxy with login, disable to enable logout completely from oauth provider
   useExpoAuthProxy: Platform.select({ web: false, default: true }),
   // use fixtures instead of real API requests
