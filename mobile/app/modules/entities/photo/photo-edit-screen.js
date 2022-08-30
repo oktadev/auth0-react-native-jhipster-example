@@ -1,22 +1,22 @@
-import React, { createRef } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
-import { connect } from "react-redux";
-import * as Yup from "yup";
+import React, { createRef } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { connect } from 'react-redux';
+import * as Yup from 'yup';
 
-import PhotoActions from "./photo.reducer";
-import AlbumActions from "../album/album.reducer";
-import TagActions from "../tag/tag.reducer";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import FormButton from "../../../shared/components/form/jhi-form-button";
-import FormField from "../../../shared/components/form/jhi-form-field";
-import Form from "../../../shared/components/form/jhi-form";
-import { useDidUpdateEffect } from "../../../shared/util/use-did-update-effect";
-import styles from "./photo-styles";
+import PhotoActions from './photo.reducer';
+import AlbumActions from '../album/album.reducer';
+import TagActions from '../tag/tag.reducer';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import FormButton from '../../../shared/components/form/jhi-form-button';
+import FormField from '../../../shared/components/form/jhi-form-field';
+import Form from '../../../shared/components/form/jhi-form';
+import { useDidUpdateEffect } from '../../../shared/util/use-did-update-effect';
+import styles from './photo-styles';
 
 // set up validation schema for the form
 const validationSchema = Yup.object().shape({
   title: Yup.string().required(),
-  image: Yup.string().required()
+  image: Yup.string().required(),
 });
 
 function PhotoEditScreen(props) {
@@ -34,11 +34,11 @@ function PhotoEditScreen(props) {
     getAllAlbums,
     albumList,
     getAllTags,
-    tagList
+    tagList,
   } = props;
 
   const [formValue, setFormValue] = React.useState();
-  const [error, setError] = React.useState("");
+  const [error, setError] = React.useState('');
 
   const isNewEntity = !(route.params && route.params.entityId);
 
@@ -67,10 +67,10 @@ function PhotoEditScreen(props) {
   useDidUpdateEffect(() => {
     if (updating === false) {
       if (errorUpdating) {
-        setError(errorUpdating && errorUpdating.detail ? errorUpdating.detail : "Something went wrong updating the entity");
+        setError(errorUpdating && errorUpdating.detail ? errorUpdating.detail : 'Something went wrong updating the entity');
       } else if (updateSuccess) {
-        setError("");
-        isNewEntity || !navigation.canGoBack() ? navigation.replace("PhotoDetail", { entityId: photo?.id }) : navigation.pop();
+        setError('');
+        isNewEntity || !navigation.canGoBack() ? navigation.replace('PhotoDetail', { entityId: photo?.id }) : navigation.pop();
       }
     }
   }, [updateSuccess, errorUpdating, navigation]);
@@ -208,7 +208,7 @@ function PhotoEditScreen(props) {
               testID="tagSelectInput"
             />
 
-            <FormButton title={"Save"} testID={"submitButton"} />
+            <FormButton title={'Save'} testID={'submitButton'} />
           </Form>
         )}
       </KeyboardAwareScrollView>
@@ -232,7 +232,7 @@ const entityToFormValue = (value) => {
     taken: value.taken ?? null,
     uploaded: value.uploaded ?? null,
     album: value.album && value.album.id ? value.album.id : null,
-    tags: value.tags?.map((i) => i.id)
+    tags: value.tags?.map((i) => i.id),
   };
 };
 const formValueToEntity = (value) => {
@@ -245,7 +245,7 @@ const formValueToEntity = (value) => {
     height: value.height ?? null,
     width: value.width ?? null,
     taken: value.taken ?? null,
-    uploaded: value.uploaded ?? null
+    uploaded: value.uploaded ?? null,
   };
   entity.album = value.album ? { id: value.album } : null;
   entity.tags = value.tags.map((id) => ({ id }));
@@ -260,7 +260,7 @@ const mapStateToProps = (state) => {
     fetching: state.photos.fetchingOne,
     updating: state.photos.updating,
     updateSuccess: state.photos.updateSuccess,
-    errorUpdating: state.photos.errorUpdating
+    errorUpdating: state.photos.errorUpdating,
   };
 };
 
@@ -271,7 +271,7 @@ const mapDispatchToProps = (dispatch) => {
     getPhoto: (id) => dispatch(PhotoActions.photoRequest(id)),
     getAllPhotos: (options) => dispatch(PhotoActions.photoAllRequest(options)),
     updatePhoto: (photo) => dispatch(PhotoActions.photoUpdateRequest(photo)),
-    reset: () => dispatch(PhotoActions.photoReset())
+    reset: () => dispatch(PhotoActions.photoReset()),
   };
 };
 
