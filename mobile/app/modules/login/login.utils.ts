@@ -93,6 +93,9 @@ export async function logoutFromIdp(clientId: string, issuer: string, idToken: s
         `${endSessionEndpoint}?id_token_hint=${idToken}&client_id=${clientId}&post_logout_redirect_uri=${redirectUri}`,
         redirectUri,
       );
+    } else if (issuer.includes('auth0.com')) {
+      const redirectUri = makeRedirectUri({ useProxy: AppConfig.useExpoAuthProxy });
+      await WebBrowser.openAuthSessionAsync(`${issuer}/v2/logout?client_id=${clientId}&returnTo=${redirectUri}`, redirectUri);
     }
   }
 }
