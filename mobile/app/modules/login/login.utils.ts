@@ -1,8 +1,10 @@
+import { Platform } from 'react-native';
 import { DiscoveryDocument, makeRedirectUri } from 'expo-auth-session';
 import * as AuthSession from 'expo-auth-session';
 import { generateHexStringAsync, buildCodeAsync } from 'expo-auth-session/src/PKCE';
 import { buildQueryString } from 'expo-auth-session/src/QueryParams';
 import * as WebBrowser from 'expo-web-browser';
+import * as Linking from 'expo-linking';
 import AppConfig from '../../config/app-config';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -24,7 +26,7 @@ export async function getAuthParams(clientId: string, redirectUri: string, disco
     state,
     client_id: clientId,
     redirect_uri: redirectUri,
-    audience: 'https://dev-06bzs1cu.us.auth0.com/api/v2/',
+    audience: 'api://default', // https://dev-06bzs1cu.us.auth0.com/api/v2/
   };
   const authUrl = `${discovery.discoveryDocument?.authorization_endpoint}?${buildQueryString(authenticationOptions)}`;
   return {
@@ -73,7 +75,8 @@ export async function doOauthPkceFlow(clientId: string, issuer: string): Promise
   // set up the IDP url, prepare codeVerifier and state
   const { authUrl, codeVerifier, state } = await getAuthParams(clientId, redirectUri, discovery);
   // redirect to the IDP
-  const authResult = await AuthSession.startAsync({ authUrl, returnUrl: redirectUri });
+  const returnUri = Platform.OS === 'android' && !AppConfig.useExpoAuthProxy ? redirectUri : Linking.createURL('/');
+  const authResult = await AuthSession.startAsync({ authUrl, returnUrl: returnUri });
   // check the response for success/failure
   const code = extractCodeOrThrow(authResult, state);
   // exchange the received code for an access token
@@ -93,6 +96,7 @@ export async function logoutFromIdp(clientId: string, issuer: string, idToken: s
         redirectUri,
       );
     } else if (issuer.includes('auth0.com')) {
+      // Auth0 need special handling since end_session_endpoint is not in oidc-configuration
       const redirectUri = makeRedirectUri({ useProxy: AppConfig.useExpoAuthProxy });
       await WebBrowser.openAuthSessionAsync(`${issuer}/v2/logout?client_id=${clientId}&returnTo=${redirectUri}`, redirectUri);
     }

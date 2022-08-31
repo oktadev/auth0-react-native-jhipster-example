@@ -27,7 +27,7 @@
     "entitySuffix": "",
     "gradleEnterpriseHost": "",
     "jhiPrefix": "jhi",
-    "jhipsterVersion": "7.6.0",
+    "jhipsterVersion": "7.9.2",
     "languages": ["en", "es"],
     "messageBroker": false,
     "nativeLanguage": "en",
@@ -53,6 +53,6 @@
       "reactNativeAppName": "Flickr2",
       "detox": false
     },
-    "lastLiquibaseTimestamp": 1661823916000
+    "lastLiquibaseTimestamp": 1661963864000
   }
 }
