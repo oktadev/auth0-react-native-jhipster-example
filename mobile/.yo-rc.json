@@ -53,6 +53,6 @@
       "reactNativeAppName": "Flickr2",
       "detox": true
     },
-    "lastLiquibaseTimestamp": 1662002395000
+    "lastLiquibaseTimestamp": 1662011984000
   }
 }
