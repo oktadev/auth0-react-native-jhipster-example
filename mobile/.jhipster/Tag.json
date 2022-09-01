@@ -1,5 +1,10 @@
 {
-  "name": "Tag",
+  "angularJSSuffix": "",
+  "applications": ["flickr2"],
+  "changelogDate": "20220901155656",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tag",
   "fields": [
     {
       "fieldName": "name",
@@ -8,25 +13,20 @@
       "fieldValidateRulesMinlength": "2"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Tag",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-many",
       "otherEntityName": "photo",
       "otherEntityRelationshipName": "tag",
+      "ownerSide": false,
       "relationshipName": "photo",
-      "ownerSide": false
+      "relationshipType": "many-to-many"
     }
   ],
-  "entityTableName": "tag",
-  "dto": "no",
-  "pagination": "infinite-scroll",
   "service": "no",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "angularJSSuffix": "",
-  "changelogDate": "20220901060350",
   "skipClient": false
 }

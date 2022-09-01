@@ -16,7 +16,7 @@
     "clientPackageManager": "npm",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "creationTimestamp": 1662012521115,
+    "creationTimestamp": 1662047636086,
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "dtoSuffix": "DTO",
@@ -30,7 +30,7 @@
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.9.2",
     "languages": ["en", "es"],
-    "lastLiquibaseTimestamp": 1662012230000,
+    "lastLiquibaseTimestamp": 1662047816000,
     "messageBroker": false,
     "nativeLanguage": "en",
     "otherModules": [
@@ -57,7 +57,6 @@
     "skipUserManagement": true,
     "testFrameworks": ["cypress"],
     "websocket": false,
-    "withAdminUi": true,
-    "skipServer": false
+    "withAdminUi": true
   }
 }

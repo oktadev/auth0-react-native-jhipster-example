@@ -1,5 +1,10 @@
 {
-  "name": "Album",
+  "angularJSSuffix": "",
+  "applications": ["flickr2"],
+  "changelogDate": "20220901155456",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "album",
   "fields": [
     {
       "fieldName": "title",
@@ -16,24 +21,19 @@
       "fieldType": "Instant"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Album",
+  "pagination": "pagination",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
+      "otherEntityField": "login",
       "otherEntityName": "user",
       "relationshipName": "user",
-      "otherEntityField": "login"
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "album",
-  "dto": "no",
-  "pagination": "pagination",
   "service": "no",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": ["flickr2"],
-  "angularJSSuffix": "",
-  "changelogDate": "20220901060348",
   "skipClient": false
 }

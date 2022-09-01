@@ -70,6 +70,8 @@ To run the e2e tests:
 npm run test:e2e
 ```
 
+You will need to have [`jq`](https://stedolan.github.io/jq/download/) installed for this command to work.
+
 ## Tips
 
 - When running your JHipster backend locally for Android, make sure to run `adb reverse tcp:8080 tcp:8080` so the app can communicate with your backend.
