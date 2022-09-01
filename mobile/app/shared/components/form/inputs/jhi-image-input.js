@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Text, Image, Button, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { MaterialIcons } from '@expo/vector-icons';
 /* eslint-disable react-native/no-inline-styles */
 
 export default React.forwardRef((props, ref) => {
@@ -26,11 +27,15 @@ export default React.forwardRef((props, ref) => {
       aspect: [4, 3],
       quality: 1,
       allowsEditing: true,
+      base64: true,
     });
     if (!result.cancelled) {
-      const newValue = result.uri.substring(result.uri.indexOf('base64,') + 7);
-      onChange(newValue);
+      onChange(result.base64);
     }
+  };
+
+  const removePhoto = () => {
+    onChange('');
   };
 
   return (
@@ -40,11 +45,14 @@ export default React.forwardRef((props, ref) => {
       <Button title="Choose Photo" onPress={choosePhoto} />
       {/* render the base64 image or plain image input */}
       {value ? (
-        <Image
-          ref={ref}
-          style={[styles.imageSize, { borderColor: error ? '#fc6d47' : '#c0cbd3' }]}
-          source={{ uri: inputType === 'image-base64' ? `data:${contentType};base64,${value}` : value }}
-        />
+        <View>
+          <Image
+            ref={ref}
+            style={[styles.imageSize, { borderColor: error ? '#fc6d47' : '#c0cbd3' }]}
+            source={{ uri: inputType === 'image-base64' ? `data:${contentType};base64,${value}` : value }}
+          />
+          <MaterialIcons name="delete" size={24} color="red" onPress={removePhoto} style={styles.deleteIcon} />
+        </View>
       ) : (
         <></>
       )}
@@ -71,5 +79,10 @@ const styles = StyleSheet.create({
   textError: {
     color: '#fc6d47',
     fontSize: 14,
+  },
+  deleteIcon: {
+    right: 0,
+    top: -60,
+    position: 'absolute',
   },
 });
