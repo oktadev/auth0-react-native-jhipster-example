@@ -15,7 +15,8 @@ JHipster React Native is designed to be used with a JHipster backend.
 1. [Getting Started](#getting-started)
 2. [Generating Entities](#entities)
 3. [OAuth2 Configuration](#oauth2-configuration)
-4. [Tips](#tips)
+4. [E2E Tests](#e2e-tests)
+5. [Tips](#tips)
 
 ## Getting Started
 
@@ -58,6 +59,16 @@ jhipster jdl <file.jdl>
 ## OAuth2 Configuration
 
 For configuring your redirect URIs, please see [the JHipster React Native OAuth2.0 docs](https://github.com/jhipster/generator-jhipster-react-native/blob/main/docs/oauth2-oidc.md).
+
+## E2E Tests
+
+See the example end-to-end test in [`e2e/home-screen.spec.js`](e2e/home-screen.spec.js).
+
+To run the e2e tests:
+
+```bash
+npm run test:e2e
+```
 
 ## Tips
 
