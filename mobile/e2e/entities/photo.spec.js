@@ -45,10 +45,6 @@ describe('Photo Screen Tests', () => {
     await element(by.id('descriptionInput')).tapReturnKey();
     // image
     await scrollTo('imageInput', 'photoEditScrollView');
-    await element(by.id('imageInput')).replaceText('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
-    await element(by.id('imageInput')).tapReturnKey();
-    await element(by.id('imageContentTypeInput')).replaceText('image/gif');
-    await element(by.id('imageContentTypeInput')).tapReturnKey();
     // height
     await scrollTo('heightInput', 'photoEditScrollView');
     await element(by.id('heightInput')).replaceText('11353');
@@ -59,10 +55,10 @@ describe('Photo Screen Tests', () => {
     await element(by.id('widthInput')).tapReturnKey();
     // taken
     await scrollTo('takenInput', 'photoEditScrollView');
-    await setDateTimePickerValue('takenInput', '2022-08-31T11:45:00-06:00', 'ISO8601');
+    await setDateTimePickerValue('takenInput', '2022-08-31T11:49:00-06:00', 'ISO8601');
     // uploaded
     await scrollTo('uploadedInput', 'photoEditScrollView');
-    await setDateTimePickerValue('uploadedInput', '2022-08-31T17:33:00-06:00', 'ISO8601');
+    await setDateTimePickerValue('uploadedInput', '2022-08-31T17:37:00-06:00', 'ISO8601');
     // save
     await scrollTo('submitButton', 'photoEditScrollView');
     await waitThenTapButton('submitButton');
@@ -79,7 +75,6 @@ describe('Photo Screen Tests', () => {
     await expect(element(by.id('description'))).toHaveLabel('long-text-blob-content');
     // image
     await scrollTo('image', 'photoDetailScrollView');
-    await expect(element(by.id('image'))).toBeVisible();
     // height
     await scrollTo('height', 'photoDetailScrollView');
     await expect(element(by.id('height'))).toHaveLabel('11353');
@@ -89,11 +84,11 @@ describe('Photo Screen Tests', () => {
     // taken
     await scrollTo('taken', 'photoDetailScrollView');
     const takenCreateAttributes = await element(by.id('taken')).getAttributes();
-    jestExpect(Date.parse(takenCreateAttributes.label)).toEqual(Date.parse('2022-08-31T11:45:00-06:00'));
+    jestExpect(Date.parse(takenCreateAttributes.label)).toEqual(Date.parse('2022-08-31T11:49:00-06:00'));
     // uploaded
     await scrollTo('uploaded', 'photoDetailScrollView');
     const uploadedCreateAttributes = await element(by.id('uploaded')).getAttributes();
-    jestExpect(Date.parse(uploadedCreateAttributes.label)).toEqual(Date.parse('2022-08-31T17:33:00-06:00'));
+    jestExpect(Date.parse(uploadedCreateAttributes.label)).toEqual(Date.parse('2022-08-31T17:37:00-06:00'));
 
     /*
      * Update Photo
@@ -111,10 +106,6 @@ describe('Photo Screen Tests', () => {
     await element(by.id('descriptionInput')).tapReturnKey();
     // image
     await scrollTo('imageInput', 'photoEditScrollView');
-    await element(by.id('imageInput')).replaceText('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
-    await element(by.id('imageInput')).tapReturnKey();
-    await element(by.id('imageContentTypeInput')).replaceText('image/gif');
-    await element(by.id('imageContentTypeInput')).tapReturnKey();
     // height
     await scrollTo('heightInput', 'photoEditScrollView');
     await element(by.id('heightInput')).replaceText('97818');
@@ -125,10 +116,10 @@ describe('Photo Screen Tests', () => {
     await element(by.id('widthInput')).tapReturnKey();
     // taken
     await scrollTo('takenInput', 'photoEditScrollView');
-    await setDateTimePickerValue('takenInput', '2022-08-31T20:12:00-06:00', 'ISO8601');
+    await setDateTimePickerValue('takenInput', '2022-08-31T20:16:00-06:00', 'ISO8601');
     // uploaded
     await scrollTo('uploadedInput', 'photoEditScrollView');
-    await setDateTimePickerValue('uploadedInput', '2022-08-31T12:15:00-06:00', 'ISO8601');
+    await setDateTimePickerValue('uploadedInput', '2022-08-31T12:20:00-06:00', 'ISO8601');
     // save
     await scrollTo('submitButton', 'photoEditScrollView');
     await waitThenTapButton('submitButton');
@@ -145,7 +136,6 @@ describe('Photo Screen Tests', () => {
     await expect(element(by.id('description'))).toHaveLabel('long-text-blob-content-2');
     // image
     await scrollTo('image', 'photoDetailScrollView');
-    await expect(element(by.id('image'))).toBeVisible();
     // height
     await scrollTo('height', 'photoDetailScrollView');
     await expect(element(by.id('height'))).toHaveLabel('97818');
@@ -155,11 +145,11 @@ describe('Photo Screen Tests', () => {
     // taken
     await scrollTo('taken', 'photoDetailScrollView');
     const takenUpdateAttributes = await element(by.id('taken')).getAttributes();
-    jestExpect(Date.parse(takenUpdateAttributes.label)).toEqual(Date.parse('2022-08-31T20:12:00-06:00'));
+    jestExpect(Date.parse(takenUpdateAttributes.label)).toEqual(Date.parse('2022-08-31T20:16:00-06:00'));
     // uploaded
     await scrollTo('uploaded', 'photoDetailScrollView');
     const uploadedUpdateAttributes = await element(by.id('uploaded')).getAttributes();
-    jestExpect(Date.parse(uploadedUpdateAttributes.label)).toEqual(Date.parse('2022-08-31T12:15:00-06:00'));
+    jestExpect(Date.parse(uploadedUpdateAttributes.label)).toEqual(Date.parse('2022-08-31T12:20:00-06:00'));
 
     /*
      * Delete

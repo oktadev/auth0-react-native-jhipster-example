@@ -16,6 +16,7 @@
     "clientPackageManager": "npm",
     "clientTheme": "none",
     "clientThemeVariant": "",
+    "creationTimestamp": 1662012521115,
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "dtoSuffix": "DTO",
@@ -29,6 +30,7 @@
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.9.2",
     "languages": ["en", "es"],
+    "lastLiquibaseTimestamp": 1662012230000,
     "messageBroker": false,
     "nativeLanguage": "en",
     "otherModules": [
@@ -39,20 +41,23 @@
     ],
     "packageFolder": "com/auth0/flickr2",
     "packageName": "com.auth0.flickr2",
+    "pages": [],
     "prodDatabaseType": "postgresql",
+    "reactNative": {
+      "detox": true,
+      "reactNativeAppName": "Flickr2"
+    },
     "reactive": false,
     "searchEngine": false,
     "serverPort": "8080",
     "serviceDiscoveryType": false,
+    "skipCheckLengthOfIdentifier": false,
+    "skipClient": false,
+    "skipFakeData": false,
     "skipUserManagement": true,
     "testFrameworks": ["cypress"],
     "websocket": false,
     "withAdminUi": true,
-    "skipClient": false,
-    "reactNative": {
-      "reactNativeAppName": "Flickr2",
-      "detox": true
-    },
-    "lastLiquibaseTimestamp": 1662011984000
+    "skipServer": false
   }
 }

@@ -174,6 +174,7 @@ function PhotoEditScreen(props) {
               label="Image"
               placeholder="Enter Image"
               testID="imageInput"
+              inputType="image-base64"
               onSubmitEditing={() => imageContentTypeRef.current?.focus()}
             />
             <FormField

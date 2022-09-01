@@ -20,7 +20,6 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "user",
-      "otherEntityRelationshipName": "album",
       "relationshipName": "user",
       "otherEntityField": "login"
     }
@@ -33,7 +32,8 @@
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,
-  "applications": "*",
+  "applications": ["flickr2"],
   "angularJSSuffix": "",
-  "changelogDate": "20220901055942"
+  "changelogDate": "20220901060348",
+  "skipClient": false
 }

@@ -39,14 +39,14 @@ export default React.forwardRef((props, ref) => {
       {label && <Text style={[styles.label, labelStyle]}>{label}</Text>}
       <Button title="Choose Photo" onPress={choosePhoto} />
       {/* render the base64 image or plain image input */}
-      {value && inputType === 'image-base64' ? (
+      {value ? (
         <Image
           ref={ref}
           style={[styles.imageSize, { borderColor: error ? '#fc6d47' : '#c0cbd3' }]}
-          source={{ uri: `data:${contentType};base64,${value}` }}
+          source={{ uri: inputType === 'image-base64' ? `data:${contentType};base64,${value}` : value }}
         />
       ) : (
-        <Image ref={ref} style={[styles.imageSize, { borderColor: error ? '#fc6d47' : '#c0cbd3' }]} source={{ uri: `${value}` }} />
+        <></>
       )}
       {/* if there's an error, render it */}
       {!!error && !!error.message && <Text style={styles.textError}>{error && error.message}</Text>}
@@ -57,7 +57,8 @@ export default React.forwardRef((props, ref) => {
 const styles = StyleSheet.create({
   imageSize: {
     width: '100%',
-    height: 400,
+    height: undefined,
+    aspectRatio: 1,
   },
   container: {
     marginVertical: 8,

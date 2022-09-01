@@ -45,7 +45,7 @@ describe('Album Screen Tests', () => {
     await element(by.id('descriptionInput')).tapReturnKey();
     // created
     await scrollTo('createdInput', 'albumEditScrollView');
-    await setDateTimePickerValue('createdInput', '2022-09-01T01:15:00-06:00', 'ISO8601');
+    await setDateTimePickerValue('createdInput', '2022-09-01T01:19:00-06:00', 'ISO8601');
     // save
     await scrollTo('submitButton', 'albumEditScrollView');
     await waitThenTapButton('submitButton');
@@ -63,7 +63,7 @@ describe('Album Screen Tests', () => {
     // created
     await scrollTo('created', 'albumDetailScrollView');
     const createdCreateAttributes = await element(by.id('created')).getAttributes();
-    jestExpect(Date.parse(createdCreateAttributes.label)).toEqual(Date.parse('2022-09-01T01:15:00-06:00'));
+    jestExpect(Date.parse(createdCreateAttributes.label)).toEqual(Date.parse('2022-09-01T01:19:00-06:00'));
 
     /*
      * Update Album
@@ -81,7 +81,7 @@ describe('Album Screen Tests', () => {
     await element(by.id('descriptionInput')).tapReturnKey();
     // created
     await scrollTo('createdInput', 'albumEditScrollView');
-    await setDateTimePickerValue('createdInput', '2022-09-01T01:10:00-06:00', 'ISO8601');
+    await setDateTimePickerValue('createdInput', '2022-09-01T01:14:00-06:00', 'ISO8601');
     // save
     await scrollTo('submitButton', 'albumEditScrollView');
     await waitThenTapButton('submitButton');
@@ -99,7 +99,7 @@ describe('Album Screen Tests', () => {
     // created
     await scrollTo('created', 'albumDetailScrollView');
     const createdUpdateAttributes = await element(by.id('created')).getAttributes();
-    jestExpect(Date.parse(createdUpdateAttributes.label)).toEqual(Date.parse('2022-09-01T01:10:00-06:00'));
+    jestExpect(Date.parse(createdUpdateAttributes.label)).toEqual(Date.parse('2022-09-01T01:14:00-06:00'));
 
     /*
      * Delete

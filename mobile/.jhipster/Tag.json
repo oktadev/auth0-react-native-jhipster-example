@@ -27,5 +27,6 @@
   "embedded": false,
   "applications": "*",
   "angularJSSuffix": "",
-  "changelogDate": "20220901055944"
+  "changelogDate": "20220901060350",
+  "skipClient": false
 }
