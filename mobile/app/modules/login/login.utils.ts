@@ -26,7 +26,7 @@ export async function getAuthParams(clientId: string, redirectUri: string, disco
     state,
     client_id: clientId,
     redirect_uri: redirectUri,
-    audience: 'api://default', // https://dev-06bzs1cu.us.auth0.com/api/v2/
+    audience: 'api://default',
   };
   const authUrl = `${discovery.discoveryDocument?.authorization_endpoint}?${buildQueryString(authenticationOptions)}`;
   return {

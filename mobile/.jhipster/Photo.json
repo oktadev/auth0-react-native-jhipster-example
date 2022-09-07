@@ -1,7 +1,7 @@
 {
   "angularJSSuffix": "",
-  "applications": ["flickr2"],
-  "changelogDate": "20220901155556",
+  "applications": "*",
+  "changelogDate": "20220907165326",
   "dto": "no",
   "embedded": false,
   "entityTableName": "photo",
@@ -60,6 +60,5 @@
       "relationshipType": "many-to-many"
     }
   ],
-  "service": "no",
-  "skipClient": false
+  "service": "no"
 }

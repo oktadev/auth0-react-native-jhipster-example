@@ -97,48 +97,6 @@ function PhotoEditScreen(props) {
   const albumRef = createRef();
   const tagsRef = createRef();
 
-  const metadata = (
-    <div>
-      <FormField
-        name="height"
-        ref={heightRef}
-        label="Height"
-        placeholder="Enter Height"
-        testID="heightInput"
-        inputType="number"
-        onSubmitEditing={() => widthRef.current?.focus()}
-      />
-      <FormField
-        name="width"
-        ref={widthRef}
-        label="Width"
-        placeholder="Enter Width"
-        testID="widthInput"
-        inputType="number"
-        onSubmitEditing={() => takenRef.current?.focus()}
-      />
-      <FormField
-        name="taken"
-        ref={takenRef}
-        label="Taken"
-        placeholder="Enter Taken"
-        testID="takenInput"
-        inputType="datetime"
-        onSubmitEditing={() => uploadedRef.current?.focus()}
-      />
-      <FormField
-        name="uploaded"
-        ref={uploadedRef}
-        label="Uploaded"
-        placeholder="Enter Uploaded"
-        testID="uploadedInput"
-        inputType="datetime"
-      />
-    </div>
-  );
-
-  const metadataRows = isNewEntity ? '' : metadata;
-
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
@@ -187,7 +145,41 @@ function PhotoEditScreen(props) {
               autoCapitalize="none"
               onSubmitEditing={() => heightRef.current?.focus()}
             />
-            {metadataRows}
+            <FormField
+              name="height"
+              ref={heightRef}
+              label="Height"
+              placeholder="Enter Height"
+              testID="heightInput"
+              inputType="number"
+              onSubmitEditing={() => widthRef.current?.focus()}
+            />
+            <FormField
+              name="width"
+              ref={widthRef}
+              label="Width"
+              placeholder="Enter Width"
+              testID="widthInput"
+              inputType="number"
+              onSubmitEditing={() => takenRef.current?.focus()}
+            />
+            <FormField
+              name="taken"
+              ref={takenRef}
+              label="Taken"
+              placeholder="Enter Taken"
+              testID="takenInput"
+              inputType="datetime"
+              onSubmitEditing={() => uploadedRef.current?.focus()}
+            />
+            <FormField
+              name="uploaded"
+              ref={uploadedRef}
+              label="Uploaded"
+              placeholder="Enter Uploaded"
+              testID="uploadedInput"
+              inputType="datetime"
+            />
             <FormField
               name="album"
               inputType="select-one"
