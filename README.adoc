@@ -1,0 +1,67 @@
+= React Native and Spring Boot with JHipster Example 
+
+> Built with https://github.com/jhipster/generator-jhipster-react-native/releases/tag/v4.3.0[JHipster React Native 4.3.0]
+
+This example app shows you how to create an React Native app you can deploy as a SPA or mobile app on iOS and Android! Please read https://auth0.com/blog/integrate-react-native-and-spring-boot-securely/[Integrate React Native and Spring Boot Securely] to see how it was created.
+
+*Prerequisites:* https://nodejs.org[Node 16], https://sdkman.io/[Java 11], and https://docs.docker.com/desktop/#download-and-install[Docker Desktop]
+
+- link:#getting-started[Getting Started]
+- link:#links[Links]
+- link:#help[Help]
+- link:#license[License]
+
+> Okta and Auth0 are on the https://auth0.com/blog/raising-the-bar-on-identity-one-year-of-okta-auth0/[same team now], so this example shows you how to use both. https://auth0.com[Auth0] is an easy to implement, adaptable authentication and authorization platform. Basically, we make your login box awesome.
+> https://developer.okta.com/[Okta] has authentication and user management APIs that reduce development time with instant-on, scalable user infrastructure.
+
+== Getting Started
+
+To install this example, clone this repository.
+
+```
+git clone https://github.com/oktadev/auth0-react-native-jhipster-example.git \
+  react-native-spring-boot --depth 1
+cd react-native-spring-boot/backend
+```
+
+Start the Spring Boot backend:
+
+[source,shell]
+----
+npm run ci:e2e:prepare # starts Keycloak and PostgreSQL in Docker
+./mvnw
+----
+
+Then, navigate to `\http://localhost:8080` in your favorite browser.
+Sign in with `admin/admin` credentials and rejoice when it all works.
+
+Open a new terminal window and enter the `mobile` directory.
+Install its dependencies and run `npm start` to test the React Native client.
+
+[source,shell]
+----
+npm install
+npm start
+----
+
+Type *w* to open the app in a web browser. You should be able to sign in and add a new photo.
+
+Deploy your app to https://auth0.com/blog/integrate-react-native-and-spring-boot-securely/#Test-on-iOS[iOS] and https://auth0.com/blog/integrate-react-native-and-spring-boot-securely/#Test-on-Android[Android]. Then, try switching your identity provider to https://auth0.com/blog/integrate-react-native-and-spring-boot-securely/#Use-Auth0-for-Identity[Auth0]
+and https://auth0.com/blog/integrate-react-native-and-spring-boot-securely/#Use-Okta-for-identity[Okta].
+
+== Links
+
+This example uses the following open source libraries:
+
+- https://reactnative.dev/[React Native]
+- https://www.jhipster.tech[JHipster]
+- https://spring.io/projects/spring-boot[Spring Boot]
+- https://spring.io/projects/spring-security[Spring Security]
+
+== Help
+
+Please post any questions as comments on the https://auth0.com/blog/integrate-react-native-and-spring-boot-securely/[blog post].
+
+== License
+
+Apache 2.0, see link:LICENSE[LICENSE].
